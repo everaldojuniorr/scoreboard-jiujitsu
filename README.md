@@ -50,8 +50,12 @@ Depois, em **cursor.com/codebase**, você pode usar **Sync from GitHub** para ma
 
 ### GitHub Actions
 
-- `ci.yml` — lint, build Next.js e build da imagem Docker
-- `deploy-vps.yml` — envia a imagem para a VPS (secrets: `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY`)
+- `ci.yml` — lint e build no GitHub
+- `deploy.yml` — valida o build e faz deploy na VPS em `/opt/scoreboard-jiujitsu` (mesmo padrão do `financial-manager`)
+
+Secrets necessários no repositório: `VPS_HOST`, `VPS_USER`, `VPS_SSH_KEY` (opcional: `VPS_PORT`).
+
+Após o deploy, o placar fica em **http://127.0.0.1:43123** na VPS (porta interna; use Caddy/reverse proxy se quiser HTTPS público).
 
 ## Observação sobre regras
 
